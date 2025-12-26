@@ -25,13 +25,21 @@ module.exports = grammar({
       'agent',
       'tool',
       'struct',
+      'fn',
       'if',
       'else',
       'return',
       'use',
       'output',
       'for',
-      'in'
+      'in',
+      'while',
+      'try',
+      'catch',
+      'break',
+      'continue',
+      'import',
+      'from'
     ),
 
     type_keyword: $ => choice(
@@ -47,8 +55,11 @@ module.exports = grammar({
     null: $ => 'null',
 
     // Literals
-    // String with interpolation support - matches "..." including {expr} inside
-    string: $ => /"([^"\\{]|\\.|\{[^}]*\})*"/,
+    // String with interpolation support - matches "..." or """...""" including {expr} inside
+    string: $ => choice(
+      /"""([^{]|\{[^}]*\})*"""/,  // Multiline string
+      /"([^"\\{]|\\.|\{[^}]*\})*"/  // Regular string
+    ),
     number: $ => /\d+(\.\d+)?/,
 
     // Identifiers (anything else that looks like a word)
@@ -57,6 +68,7 @@ module.exports = grammar({
     // Operators
     operator: $ => choice(
       '->',
+      '=>',
       '..',
       '==',
       '!=',

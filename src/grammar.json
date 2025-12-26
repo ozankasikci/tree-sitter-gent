@@ -74,6 +74,10 @@
         },
         {
           "type": "STRING",
+          "value": "fn"
+        },
+        {
+          "type": "STRING",
           "value": "if"
         },
         {
@@ -99,6 +103,34 @@
         {
           "type": "STRING",
           "value": "in"
+        },
+        {
+          "type": "STRING",
+          "value": "while"
+        },
+        {
+          "type": "STRING",
+          "value": "try"
+        },
+        {
+          "type": "STRING",
+          "value": "catch"
+        },
+        {
+          "type": "STRING",
+          "value": "break"
+        },
+        {
+          "type": "STRING",
+          "value": "continue"
+        },
+        {
+          "type": "STRING",
+          "value": "import"
+        },
+        {
+          "type": "STRING",
+          "value": "from"
         }
       ]
     },
@@ -149,8 +181,17 @@
       "value": "null"
     },
     "string": {
-      "type": "PATTERN",
-      "value": "\"([^\"\\\\{]|\\\\.|\\{[^}]*\\})*\""
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "\"\"\"([^{]|\\{[^}]*\\})*\"\"\""
+        },
+        {
+          "type": "PATTERN",
+          "value": "\"([^\"\\\\{]|\\\\.|\\{[^}]*\\})*\""
+        }
+      ]
     },
     "number": {
       "type": "PATTERN",
@@ -166,6 +207,10 @@
         {
           "type": "STRING",
           "value": "->"
+        },
+        {
+          "type": "STRING",
+          "value": "=>"
         },
         {
           "type": "STRING",
