@@ -29,7 +29,9 @@ module.exports = grammar({
       'else',
       'return',
       'use',
-      'output'
+      'output',
+      'for',
+      'in'
     ),
 
     type_keyword: $ => choice(
@@ -45,7 +47,8 @@ module.exports = grammar({
     null: $ => 'null',
 
     // Literals
-    string: $ => /"([^"\\]|\\.)*"/,
+    // String with interpolation support - matches "..." including {expr} inside
+    string: $ => /"([^"\\{]|\\.|\{[^}]*\})*"/,
     number: $ => /\d+(\.\d+)?/,
 
     // Identifiers (anything else that looks like a word)
@@ -54,6 +57,7 @@ module.exports = grammar({
     // Operators
     operator: $ => choice(
       '->',
+      '..',
       '==',
       '!=',
       '<=',

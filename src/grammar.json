@@ -91,6 +91,14 @@
         {
           "type": "STRING",
           "value": "output"
+        },
+        {
+          "type": "STRING",
+          "value": "for"
+        },
+        {
+          "type": "STRING",
+          "value": "in"
         }
       ]
     },
@@ -142,7 +150,7 @@
     },
     "string": {
       "type": "PATTERN",
-      "value": "\"([^\"\\\\]|\\\\.)*\""
+      "value": "\"([^\"\\\\{]|\\\\.|\\{[^}]*\\})*\""
     },
     "number": {
       "type": "PATTERN",
@@ -158,6 +166,10 @@
         {
           "type": "STRING",
           "value": "->"
+        },
+        {
+          "type": "STRING",
+          "value": ".."
         },
         {
           "type": "STRING",
