@@ -41,6 +41,14 @@
         },
         {
           "type": "SYMBOL",
+          "name": "method_call"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "function_call"
+        },
+        {
+          "type": "SYMBOL",
           "name": "identifier"
         },
         {
@@ -196,6 +204,14 @@
     "number": {
       "type": "PATTERN",
       "value": "\\d+(\\.\\d+)?"
+    },
+    "method_call": {
+      "type": "PATTERN",
+      "value": "\\.[a-zA-Z_][a-zA-Z0-9_]*\\("
+    },
+    "function_call": {
+      "type": "PATTERN",
+      "value": "[a-zA-Z_][a-zA-Z0-9_]*\\("
     },
     "identifier": {
       "type": "PATTERN",

@@ -14,6 +14,8 @@ module.exports = grammar({
       $.null,
       $.string,
       $.number,
+      $.method_call,
+      $.function_call,
       $.identifier,
       $.operator,
       $.punctuation
@@ -61,6 +63,12 @@ module.exports = grammar({
       /"([^"\\{]|\\.|\{[^}]*\})*"/  // Regular string
     ),
     number: $ => /\d+(\.\d+)?/,
+
+    // Method call: .methodName(
+    method_call: $ => /\.[a-zA-Z_][a-zA-Z0-9_]*\(/,
+
+    // Function call: functionName(
+    function_call: $ => /[a-zA-Z_][a-zA-Z0-9_]*\(/,
 
     // Identifiers (anything else that looks like a word)
     identifier: $ => /[a-zA-Z_][a-zA-Z0-9_]*/,

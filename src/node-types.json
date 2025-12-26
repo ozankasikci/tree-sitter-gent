@@ -36,11 +36,19 @@
           "named": true
         },
         {
+          "type": "function_call",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
         {
           "type": "keyword",
+          "named": true
+        },
+        {
+          "type": "method_call",
           "named": true
         },
         {
@@ -237,6 +245,10 @@
     "named": false
   },
   {
+    "type": "function_call",
+    "named": true
+  },
+  {
     "type": "identifier",
     "named": true
   },
@@ -255,6 +267,10 @@
   {
     "type": "let",
     "named": false
+  },
+  {
+    "type": "method_call",
+    "named": true
   },
   {
     "type": "null",
